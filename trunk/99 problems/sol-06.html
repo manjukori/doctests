@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+    <title>Find out whether a list is a palindrome</title>
+</head>
+<body>
+<h1>Find out whether a list is a palindrome: solution</h1>
+<p>Run the following doctest to verify that the solution given works as
+expected.</p>
+<pre title="doctest">
+&gt;&gt;&gt; def is_palindrome(some_list):
+...     copy = some_list[:]
+...     copy.reverse()
+...     return some_list == copy
+&gt;&gt;&gt;
+&gt;&gt;&gt; a_list = ['s', 'p', 'a', 'm']
+&gt;&gt;&gt; is_palindrome(a_list)
+False
+&gt;&gt;&gt; another_list = ['k', 'a', 'y', 'a', 'k']
+&gt;&gt;&gt; is_palindrome(another_list)
+True
+</pre>
+<a href="all_problems.html">List of all problems</a>
+</body>
+</html>
