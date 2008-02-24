@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+    <title>Flatten a nested list structure.</title>
+</head>
+<body style="width:800px">
+<h1>Flatten a nested list structure: solution</h1>
+<p>To flatten a list, we need to make use of either
+<code title="py_code">append</code> to add an element to a new list, or
+<code title="py_code">extend</code> to "add" a list to another one.  When
+we "add" a list, we need to make sure that it is a "flat list" - so we
+call flatten on it.
+</p>
+<p>Run the following doctest to verify that the solution given works as
+expected.</p>
+<pre title="doctest linenumber">
+&gt;&gt;&gt; def flatten(some_list):
+...     flat_list = []
+...     for item in some_list:
+...         if isinstance(item, list):
+...             flat_list.extend(flatten(item))
+...         else:
+...            flat_list.append(item)
+...     return flat_list
+&gt;&gt;&gt;
+&gt;&gt;&gt; a_list = [0, 1, [2, 3], 4, 5, [6, 7]]
+&gt;&gt;&gt; flatten(a_list)
+[0, 1, 2, 3, 4, 5, 6, 7]
+&gt;&gt;&gt; another_list = [['a', ['b', ['c']]], 'd', [['e']], 'f']
+&gt;&gt;&gt; flatten(another_list)
+['a', 'b', 'c', 'd', 'e', 'f']
+</pre>
+<p>We could <code title="py_code">flatten</code> more generic by allowing it
+to flatten other types of sequences, such as tuples.  One way to do this
+would be to replace the test on line 4 by the following</p>
+<pre title="py_code linenumber=4">
+...         if isinstance(item, (list, tuple)):
+</pre>
+<p>To extend this method, we need to add explicitly new types of sequences
+allowed.  An alternative is to check for behavior: a sequence S is an iterable
+type, which means that <code title="py_code">hasattr(S, "__iter__")</code> would
+return <code title="py_code">True</code>.
+The caveat with using this approach is that other non-sequence
+objects (such as strings or dicts) also share this attribute and we would need
+to exclude them explicitly.
+</p>
+<a href="all_problems.html">List of all problems</a>
+</body>
+</html>
