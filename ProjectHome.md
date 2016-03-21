@@ -1,0 +1,3 @@
+Python's doctest module allows the easy generation of tests based on output from the standard Python interpreter shell. It is used by Crunchy (http://code.google.com/p/crunchy) to create interactive exercises within a browser window.
+
+doctests (with an "s") is a project whose aim is to collect html (or reStructuredTest) pages containing doctest based exercises (preferably with solution provided on separate pages) that can be used to learn programming with Python.
